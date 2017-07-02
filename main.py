@@ -1,6 +1,7 @@
 # Donald Trump text translator
 # Used to convert input into something President Trump would say ...
 
+import re
 from textblob import TextBlob
 
 m_file = "speeches.txt"
@@ -43,11 +44,20 @@ def store_nouns_in_container(_file):
     return noun_container
 
 
+def adding_comma(_list):
+    temp_list = []
+    for word in _list:
+        temp_list.append(re.findall(r'\w+', word))
+    return temp_list
+
+
 def main():
     # Extract nouns from file and output to user
 
-    m_list = store_nouns_in_container(m_file)
-    for word in m_list:
+    word_list = store_nouns_in_container(m_file)
+    comma_list = adding_comma(word_list)
+
+    for word in comma_list:
         print(word)
 
 
