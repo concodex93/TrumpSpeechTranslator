@@ -1,5 +1,6 @@
 # Donald Trump text translator
 # Used to convert input into something President Trump would say ...
+#
 
 import re
 from textblob import TextBlob
